@@ -15,7 +15,7 @@
   .brand-logo {
   margin-left: 50px;
   display:inline-block;
-  font-size: 5.0em;
+  font-size: 4.0em!important;
   color: #ff00ee !important;
 }
 
@@ -75,8 +75,9 @@
 }
 
 .border-white {
-  border: 4px solid white;
-  margin-top: 15px;
+  border: 4px solid #0090ff;
+  margin-top: 100px;
+  height: 80vh
 }
 
 .color-pink {
@@ -97,18 +98,17 @@
   border-radius: 50%;
 }
 
-.hard-skills {
+.soft-skills {
   color: white;
   font-size: 20px;
   border-right:2px solid white;
   border-left:none;
   border-bottom:none;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   height: 250px;
-  width:50px;
 }
 
-.hard-skills > p {
+.soft-skills > p {
   text-align: center;
   position: relative;
   top: 50%;
@@ -131,13 +131,13 @@
 .list-skills-hard {
   color: white;
   font-size: 20px;
-  margin-left:70px;
+  margin-left:100px;
   margin-top: 20px;
   text-decoration: none;
   list-style-type:disc;
 }
 
-.soft-skills {
+.hard-skills {
   color: white;
   font-size: 20px;
   border-left:2px solid white;
@@ -147,8 +147,8 @@
   width:50px;
 }
 
-.soft-skills > p {
-  text-align: center;
+.hard-skills > p {
+
   position: relative;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -159,11 +159,36 @@
 }
 
 .icons > a > i {
-  margin-top: 50px;
-  font-size: 60px;
+  margin-top: 150px;
+  font-size: 80px;
   color:white;
 }
 
 .icons > span {
   color: white;
+  letter-spacing: 2.0px;
+}
+
+.my-custom-shake {
+  @include do-shake(
+        $name: 'my-custom-shake', /* {String} is the name for the keyframes animation */
+        $h: 5px, /*  {Number} is the max number for random to assign in x axis */
+        $v: 5px, /* {Number} is the max number for random to assign in y axis */
+        $r: 3deg, /* {Number} is the max number for random rotation */
+        $dur: 100ms, /* {Number} is the animation-duration time value */
+        $precision: .02, /* {Number} is the precision of the keyframes animation. For example .02 generates keyframes each 2% and .1 each 10%. The calculation is $step: 100 * $precision; */
+        $opacity: false,
+        $q: infinite, /* {String} is the animation-iteration-count value */
+        $t: ease-in-out, /* {String} animation-timing-function value */
+        $delay: null, /* {Number} animation-delay time value */
+        $chunk: 100%); /* {Number} is the part of the keyframes where apply the animation */
+}
+
+/* Example shake-crazy */
+.shake-slow {
+	@include do-shake('shake-crazy', 40, 40, 20, 100ms, .1, $opacity: true);
+}
+
+.dark-color {
+  background-color: #0c0b19;
 }
